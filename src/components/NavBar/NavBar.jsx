@@ -9,9 +9,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <Link to='/'>See All Pokemon</Link>
-      &nbsp;&nbsp;
-      <Link to='/usersPokemon'>See Your Caught Pokemon</Link>
+      <Link to='/'>Main Page</Link>
       &nbsp;&nbsp;
       <span>Welcome, {user.name}</span>
       &nbsp;&nbsp;<Link to='' onClick={handleLogOut}>Log Out</Link>
