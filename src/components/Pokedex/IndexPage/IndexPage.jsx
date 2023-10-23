@@ -17,7 +17,7 @@ export default function IndexPage() {
         <>
             {pokemon.map(pokemon => (
                 <div key={pokemon.name}>
-                    <Link to={`/pokemon/${pokemon.name}`}>{pokemon.name}</Link>
+                    <Link to={`/${pokemon.name}`}>{pokemon.name}</Link>
                 </div>
             ))}
         </>

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import sendRequest from '../../../../utilities/send-request'
 import { createPokemon } from '../../../../utilities/pokemon-api'
@@ -6,6 +6,7 @@ import { createPokemon } from '../../../../utilities/pokemon-api'
 export default function ShowPage({ user }) {
     const [pokemon, setPokemon] = useState({})
     const { pokemonName } = useParams()
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function getPokemon() {
@@ -15,15 +16,17 @@ export default function ShowPage({ user }) {
         getPokemon()
     }, [])
 
-    async function addPokemon() {
+    async function capturePokemon() {
         const pokemonToAdd = {name: pokemon.name, owner: user._id}
-        const addedPokemon = await createPokemon(pokemonToAdd)
+        await createPokemon(pokemonToAdd)
+        navigate('/usersPokemon')
     }
 
     return (
         <>
             <h1>ShowPage</h1>
-            <button onClick={addPokemon}>{pokemon.name}</button>
+            <h2>{pokemon.name}</h2>
+            <button onClick={capturePokemon}>Capture Pokemon</button>
         </>
     )
 }

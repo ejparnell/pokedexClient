@@ -17,8 +17,8 @@ function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
-            <Route path='/pokemon' element={<IndexPage />} />
-            <Route path='/pokemon/:pokemonName' element={<ShowPage user={user}/>} />
+            <Route path='/' element={<IndexPage />} />
+            <Route path='/:pokemonName' element={<ShowPage user={user}/>} />
             <Route path='/usersPokemon' element={<UsersPokemon user={user}/>} />
           </Routes>
         </> :

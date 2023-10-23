@@ -9,7 +9,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <Link to='/pokemon'>See All Pokemon</Link>
+      <Link to='/'>See All Pokemon</Link>
       &nbsp;&nbsp;
       <Link to='/usersPokemon'>See Your Caught Pokemon</Link>
       &nbsp;&nbsp;

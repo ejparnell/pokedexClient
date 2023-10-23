@@ -23,6 +23,8 @@ export default function UsersPokemon({ user }) {
         event.preventDefault()
         const updateData = { nickname }
         const updatedPokemon = await updateNickname(event.target.id, updateData)
+        const updatedPokemonList = pokemon.map(pokemon => pokemon._id === updatedPokemon._id ? updatedPokemon : pokemon)
+        setPokemon(updatedPokemonList)
     }
 
     async function handleDelete(event) {
@@ -36,7 +38,7 @@ export default function UsersPokemon({ user }) {
             <h1>UsersPokemon</h1>
             {pokemon.map(pokemon => (
                 <div key={pokemon._id}>
-                    <Link to={`/pokemon/${pokemon.name}`}>{pokemon.name}</Link>
+                    <Link to={`/${pokemon.name}`}>{pokemon.name}</Link>
                     {pokemon.nickname && <p>{pokemon.nickname}</p>}
                     <PokemonForm 
                         pokemon={pokemon} 
